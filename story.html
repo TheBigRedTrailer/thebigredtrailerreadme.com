@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Big Red Trailer · For the Love of Food</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C8102E;
+    --red-dark: #9B0B22;
+    --red-light: #E8294A;
+    --black: #0F0F0F;
+    --black-mid: #1C1C1C;
+    --black-soft: #2A2A2A;
+    --white: #FFFFFF;
+    --white-warm: #F9F5F0;
+    --cream: #F2EBE0;
+    --light-gray: #F0ECEC;
+    --gray: #888;
+    --text-dark: #1A1A1A;
+    --text-mid: #444;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--text-dark);
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(200,16,46,0.15);
+    box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--text-dark);
+  }
+
+  .nav-logo span { color: var(--red); }
+  .nav-logo-sub { color: var(--text-dark) !important; font-size: 0.75em; opacity: 0.4; letter-spacing: 0.08em; }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--red); }
+
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    opacity: 1 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red-dark) !important; }
+
+  /* HERO — stays white bg with red/dark accents */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--white-warm);
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(200,16,46,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 20%, rgba(200,16,46,0.05) 0%, transparent 45%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(0,0,0,0.012) 60px,
+        rgba(0,0,0,0.012) 61px
+      );
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    animation: heroFadeUp 1.2s ease forwards;
+  }
+
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    animation: heroFadeUp 1.2s 0.2s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+    line-height: 0.92;
+    color: var(--text-dark);
+    margin-bottom: 0.3em;
+    animation: heroFadeUp 1.2s 0.3s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--red);
+    display: block;
+  }
+
+  .hero-title .small-of {
+    font-size: 0.45em;
+    font-style: normal;
+    opacity: 0.4;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    display: block;
+    margin: 0.3em 0 0.1em;
+    color: var(--text-dark);
+  }
+
+  .hero-trailer {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 11vw, 10rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    color: var(--text-dark);
+  }
+
+  .hero-business-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    font-weight: 700;
+    color: var(--red);
+    opacity: 0.85;
+    letter-spacing: 0.04em;
+    animation: heroFadeUp 1.2s 0.45s ease both;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--red);
+    margin: 1.8rem auto;
+    animation: heroFadeUp 1.2s 0.5s ease both;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(26,26,26,0.5);
+    letter-spacing: 0.08em;
+    font-weight: 300;
+    margin-bottom: 2.8rem;
+    animation: heroFadeUp 1.2s 0.6s ease both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: heroFadeUp 1.2s 0.75s ease both;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    padding: 0.95rem 2.4rem;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: background 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+
+  .btn-outline {
+    border: 1.5px solid rgba(26,26,26,0.3);
+    color: var(--text-dark);
+    padding: 0.95rem 2.4rem;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: border-color 0.25s, color 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.3;
+    animation: bounce 2s infinite;
+  }
+
+  .hero-scroll span {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-dark);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--text-dark), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* HOOK — light gray/cream background, dark text */
+  .hook {
+    background: var(--cream);
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hook::before {
+    content: '"';
+    position: absolute;
+    top: -1rem;
+    left: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 18rem;
+    color: var(--red);
+    opacity: 0.05;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .hook-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 0 0 40px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  .hook h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.8rem;
+    color: var(--text-dark);
+  }
+
+  .hook h2 em { font-style: italic; color: var(--red); }
+
+  .hook p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+
+  .hook-link {
+    color: var(--red);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    transition: gap 0.2s;
+  }
+
+  .hook-link:hover { gap: 0.9rem; }
+
+  /* MENU PREVIEW — white bg */
+  .menu-preview {
+    background: var(--white);
+    padding: 8rem 2rem;
+    position: relative;
+  }
+
+  .menu-preview-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .menu-preview h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    color: var(--text-dark);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .menu-preview .sub-note {
+    font-size: 0.88rem;
+    color: var(--gray);
+    font-style: italic;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ── MENU CATEGORY HEADERS ── */
+  .menu-category {
+    margin-bottom: 3rem;
+  }
+
+  .menu-category-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .menu-category-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--text-dark);
+    white-space: nowrap;
+  }
+
+  .menu-category-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+  }
+
+  .menu-category-count {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gray);
+    white-space: nowrap;
+  }
+
+  /* ── MENU GRID ── */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5px;
+    background: rgba(0,0,0,0.08);
+    border: 1.5px solid rgba(0,0,0,0.08);
+    margin-bottom: 1.5px;
+  }
+
+  .menu-item {
+    background: var(--white-warm);
+    padding: 2rem 1.8rem 1.6rem;
+    position: relative;
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .menu-item:hover { background: var(--black); }
+  .menu-item:hover .menu-item-name { color: var(--white); }
+  .menu-item:hover .menu-item-desc { color: rgba(255,255,255,0.55); }
+  .menu-item:hover .menu-item-tag { background: var(--red); color: white; border-color: var(--red); }
+  .menu-item:hover .menu-item-price { color: var(--white); }
+  .menu-item:hover .menu-item-toppings { color: rgba(255,255,255,0.35); }
+  .menu-item:hover .menu-item-toppings strong { color: rgba(255,255,255,0.55); }
+
+  .menu-item-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red-dark);
+    border: 1px solid var(--red);
+    padding: 0.2rem 0.6rem;
+    border-radius: 1px;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .menu-item-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+    line-height: 1.2;
+    padding-right: 3.5rem;
+  }
+
+  .menu-item-desc {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+    font-weight: 300;
+    transition: color 0.2s;
+    margin-bottom: 0.8rem;
+  }
+
+  .menu-item-toppings {
+    font-size: 0.75rem;
+    color: rgba(26,26,26,0.35);
+    line-height: 1.5;
+    font-weight: 300;
+    font-style: italic;
+    transition: color 0.2s;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 0.7rem;
+    margin-top: 0.2rem;
+  }
+
+  .menu-item-toppings strong {
+    font-weight: 700;
+    font-style: normal;
+    color: rgba(26,26,26,0.5);
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 0.2rem;
+    transition: color 0.2s;
+  }
+
+  .menu-item-price {
+    position: absolute;
+    top: 2rem;
+    right: 1.8rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--red);
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  /* ── ADDON BAR ── */
+  .menu-addon-bar {
+    background: var(--cream);
+    border: 1.5px solid rgba(0,0,0,0.08);
+    border-top: none;
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .menu-addon-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .menu-addon-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+  }
+
+  .menu-addon-item span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    color: var(--red);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── DRINKS GRID ── */
+  .drinks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5px;
+    background: rgba(0,0,0,0.08);
+    border: 1.5px solid rgba(0,0,0,0.08);
+  }
+
+  .drink-item {
+    background: var(--black);
+    padding: 1.5rem 1.8rem;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .drink-item:hover { background: var(--red-dark); }
+  .drink-item:hover .drink-name { color: var(--white); }
+  .drink-item:hover .drink-note { color: rgba(255,255,255,0.5); }
+
+  .drink-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+    transition: color 0.2s;
+  }
+
+  .drink-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    font-style: italic;
+    transition: color 0.2s;
+  }
+
+  .drink-price {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.8rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--red-light);
+    letter-spacing: 0.05em;
+  }
+
+  .menu-footer {
+    text-align: center;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .menu-note {
+    font-size: 0.8rem;
+    color: var(--gray);
+    font-style: italic;
+  }
+
+  .btn-primary-dark {
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 0.95rem 2.4rem;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: background 0.25s;
+    display: inline-block;
+  }
+
+  .btn-primary-dark:hover { background: var(--red-dark); }
+
+  /* TEAM — light gray background, dark text */
+  .team {
+    background: var(--light-gray);
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team::after {
+    content: 'FAMILY';
+    position: absolute;
+    bottom: -2rem;
+    right: -1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14rem;
+    color: rgba(200,16,46,0.05);
+    letter-spacing: 0.1em;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .team-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .team h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .team h2 em { color: var(--red); font-style: italic; }
+
+  .team-sub {
+    color: rgba(26,26,26,0.45);
+    font-size: 0.88rem;
+    margin-bottom: 4rem;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 2rem;
+  }
+
+  .team-card {
+    position: relative;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 2px;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+
+  .team-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+  }
+
+  .team-avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    letter-spacing: 0.05em;
+    color: white;
+    position: relative;
+  }
+
+  .avatar-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4));
+  }
+
+  .team-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.2rem;
+  }
+
+  .team-role {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+  }
+
+  .team-bio {
+    font-size: 0.82rem;
+    color: rgba(26,26,26,0.55);
+    line-height: 1.65;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .team-card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--red);
+    transition: height 0.3s ease;
+    border-radius: 2px 0 0 2px;
+  }
+
+  .team-card:hover .team-card-accent { height: 100%; }
+
+  /* FIND US — keeps red (intentional accent section) */
+  .find-us {
+    background: var(--red);
+    padding: 7rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .find-us::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 30px,
+      rgba(0,0,0,0.04) 30px,
+      rgba(0,0,0,0.04) 31px
+    );
+  }
+
+  .find-us-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .find-us h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: var(--white);
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+  }
+
+  .find-us-sub {
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .btn-white {
+    background: var(--white);
+    color: var(--red-dark);
+    padding: 0.95rem 2.4rem;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: background 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+
+  .schedule-list { list-style: none; }
+
+  .schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .schedule-day {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    color: var(--white);
+  }
+
+  .schedule-info { text-align: right; }
+
+  .schedule-loc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 700;
+  }
+
+  .schedule-time {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  /* FOOTER — dark for contrast anchor at page bottom */
+  footer {
+    background: var(--text-dark);
+    padding: 4rem 2rem 2.5rem;
+    text-align: center;
+    border-top: 3px solid var(--red);
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-logo span { color: var(--red); }
+
+  .footer-tagline {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-social a {
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-social a:hover { color: var(--red); }
+
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.1em;
+  }
+
+  /* PAGE 2 DIVIDER */
+  .page-break {
+    background: var(--cream);
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: rgba(26,26,26,0.25);
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  /* STORY HERO — cream/warm white */
+  .story-hero {
+    background: var(--white-warm);
+    padding: 14rem 2rem 8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .story-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(200,16,46,0.06), transparent 60%);
+  }
+
+  .story-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .story-hero-inner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+  }
+
+  .story-hero-inner h1 em { color: var(--red); font-style: italic; }
+
+  .story-lead {
+    font-size: 1.2rem;
+    color: rgba(26,26,26,0.6);
+    line-height: 1.9;
+    font-weight: 300;
+    max-width: 620px;
+  }
+
+  /* STORY BODY — white */
+  .story-body {
+    background: var(--white);
+    padding: 8rem 2rem;
+  }
+
+  .story-body-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .story-pull {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-style: italic;
+    color: var(--red-dark);
+    line-height: 1.4;
+    border-left: 4px solid var(--red);
+    padding-left: 1.8rem;
+    margin: 3.5rem 0;
+  }
+
+  .story-text {
+    font-size: 1rem;
+    line-height: 1.95;
+    color: var(--text-mid);
+    margin-bottom: 1.4rem;
+    font-weight: 400;
+  }
+
+  .story-chapter {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    color: var(--text-dark);
+    margin: 4rem 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .story-chapter::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+  }
+
+  .story-chapter span { color: var(--red); font-size: 0.9em; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .find-us-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-title { font-size: clamp(3rem, 14vw, 5rem); }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo"><span>The Big Red Trailer</span> <span class="nav-logo-sub">· For the Love of Food</span></div>
+  <ul class="nav-links">
+    <li><a href="index.html#menu">Menu</a></li>
+    <li><a href="index.html#team">Our People</a></li>
+    <li><a href="index.html#find-us">Find Us</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="index.html#order" class="nav-cta">Order Now</a></li>
+  </ul>
+</nav>
+
+<!-- STORY HERO -->
+<section class="story-hero" id="story">
+  <div class="story-hero-bg"></div>
+  <div class="story-hero-inner">
+    <div class="section-label">Eight Years in the Making</div>
+    <h1>Where the <em>obsession</em> started.</h1>
+    <p class="story-lead">Not every food truck has a story worth telling. Ours started in a kitchen, between a brother and sister who just couldn't stop trying to make things taste better.</p>
+  </div>
+</section>
+
+<!-- STORY BODY -->
+<section class="story-body">
+  <div class="story-body-inner">
+
+    <div class="section-label" style="color:var(--red-dark)">Chapter One</div>
+    <div class="story-chapter"><span>01.</span> The Kitchen Years</div>
+    <p class="story-text">Charity and Jacob grew up doing what a lot of siblings do — arguing, laughing, and spending hours together in the kitchen. But for them, the kitchen wasn't just somewhere food got made. It was where they watched endless food videos, broke down exactly what made a dish work, and then stayed up way too late trying to recreate it from scratch.</p>
+    <p class="story-text">Not satisfied with "pretty good." Never stopping at "close enough." Always back for one more tweak, one more test run, one more family gathering to put it in front of real people and hear the truth — whether they wanted to or not.</p>
+
+    <div class="story-pull">"They never stopped until it was right. And even then, Charity was probably already thinking about how to make it better."</div>
+
+    <div class="story-chapter"><span>02.</span> The Truck</div>
+    <p class="story-text">When they decided to start a food truck, they didn't do it halfway. They drove across the country to get a custom truck built exactly to their specs — not off-the-shelf, not close enough, exactly right. They brought it back to Montana and gathered close friends and family to build out the custom cabinets, the details, and all the finishing touches that make a space feel like yours.</p>
+    <p class="story-text">Then came the big test run. They invited everyone, cooked everything, and asked for honest feedback. They got it. Back to the trailer. Tweaked, adjusted, improved. That back-and-forth — that refusal to settle — is still how everything works today.</p>
+
+    <div class="story-chapter"><span>03.</span> Great Falls</div>
+    <p class="story-text">For two years, For the Love of Food became the talk of Great Falls, Montana. Events, markets, traveling across the state — people weren't just enjoying the food, they were coming back for it. Asking for more. Telling their friends. The truck that started as a passion project became something the community genuinely counted on.</p>
+    <p class="story-text">And then, like life tends to do, things changed. Charity met a studly Canadian and got married. Had a baby. Jacob got married too. The truck went quiet for a while.</p>
+
+    <div class="story-pull">"They built something real. Then life happened. And then — better than ever — they came back."</div>
+
+    <div class="story-chapter"><span>04.</span> The Return</div>
+    <p class="story-text">Last year, Charity and Jacob came back together for the first time — this time with their spouses, and with years of living and growing under their belts. They landed in Seeley Lake with the same relentless passion for food, the same refusal to do it halfway, and a whole crew of people who believe in what they're building.</p>
+    <p class="story-text">Everything they do is with intention. The ingredients, the recipes, the way they show up for the community — none of it is accidental. It never has been. That's what you taste when you eat their food.</p>
+    <p class="story-text">And that's why it's called what it's called.</p>
+
+    <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(0,0,0,0.08); text-align: center;">
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:2.8rem; letter-spacing:0.06em; color:var(--text-dark); margin-bottom:0.3rem;">
+        The <span style="color:var(--red);">Big Red Trailer.</span>
+      </div>
+      <div style="font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic; color:var(--red); opacity:0.75; margin-bottom:0.8rem;">For the Love of Food</div>
+      <p style="font-size:0.85rem; color:#999; margin-bottom:2rem; font-style:italic;">Not a marketing line. Just the truth.</p>
+      <a href="index.html#menu" class="btn-primary-dark">See the Menu</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>The Big Red Trailer</span></div>
+  <div class="footer-tagline">For the Love of Food · Seeley Lake, Montana · Made with intention</div>
+  <div class="footer-social">
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+    <a href="#">Order Online</a>
+  </div>
+  <div class="footer-copy">© 2026 The Big Red Trailer · For the Love of Food · Great Falls born, Seeley made.</div>
+</footer>
+
+</body>
+</html>
