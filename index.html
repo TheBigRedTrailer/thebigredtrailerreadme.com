@@ -53,10 +53,21 @@
     gap: 0.7rem;
   }
 
-  .nav-logo-icon {
-    width: 44px;
-    height: 38px;
+  .nav-logo-badge {
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
     flex-shrink: 0;
+  }
+
+  .nav-logo-badge img {
+    height: 46px;
+    width: 46px;
   }
 
   .nav-logo-text {
@@ -114,7 +125,7 @@
 
   .nav-cta:hover { background: var(--red-dark) !important; }
 
-  /* HERO — stays white bg with red/dark accents */
+  /* HERO — photo background with gradient overlay (A2) */
   .hero {
     min-height: 100vh;
     position: relative;
@@ -122,7 +133,6 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: var(--white-warm);
     padding-top: 6rem;
     padding-bottom: 4rem;
   }
@@ -130,25 +140,16 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse at 30% 60%, rgba(200,16,46,0.08) 0%, transparent 55%),
-      radial-gradient(ellipse at 80% 20%, rgba(200,16,46,0.05) 0%, transparent 45%),
-      repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 60px,
-        rgba(0,0,0,0.012) 60px,
-        rgba(0,0,0,0.012) 61px
-      );
+    background-image: url('images/hero-trailer.jpg');
+    background-size: cover;
+    background-position: center;
   }
 
   .hero-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    opacity: 0.5;
-    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(15,15,15,0.32), rgba(15,15,15,0.72));
   }
 
   .hero-content {
@@ -168,9 +169,10 @@
     font-size: 0.72rem;
     letter-spacing: 0.4em;
     text-transform: uppercase;
-    color: var(--red);
+    color: #fff;
     margin-bottom: 1.5rem;
     font-weight: 700;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
     animation: heroFadeUp 1.2s 0.2s ease both;
   }
 
@@ -208,7 +210,8 @@
     font-weight: 400;
     line-height: 0.9;
     letter-spacing: 0.04em;
-    color: var(--text-dark);
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
   }
 
   .hero-business-name {
@@ -216,9 +219,10 @@
     font-size: clamp(1.2rem, 2.5vw, 1.8rem);
     font-style: italic;
     font-weight: 700;
-    color: var(--red);
-    opacity: 0.85;
+    color: #fff;
+    opacity: 0.95;
     letter-spacing: 0.04em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
     animation: heroFadeUp 1.2s 0.45s ease both;
   }
 
@@ -232,10 +236,11 @@
 
   .hero-sub {
     font-size: 1.05rem;
-    color: rgba(26,26,26,0.5);
+    color: rgba(255,255,255,0.92);
     letter-spacing: 0.08em;
     font-weight: 300;
     margin-bottom: 2.8rem;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
     animation: heroFadeUp 1.2s 0.6s ease both;
   }
 
@@ -265,8 +270,8 @@
   .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
 
   .btn-outline {
-    border: 1.5px solid rgba(26,26,26,0.3);
-    color: var(--text-dark);
+    border: 1.5px solid rgba(255,255,255,0.6);
+    color: #fff;
     padding: 0.95rem 2.4rem;
     text-decoration: none;
     font-size: 0.78rem;
@@ -274,11 +279,11 @@
     text-transform: uppercase;
     font-weight: 700;
     border-radius: 2px;
-    transition: border-color 0.25s, color 0.25s, transform 0.2s;
+    transition: border-color 0.25s, color 0.25s, transform 0.2s, background 0.25s;
     display: inline-block;
   }
 
-  .btn-outline:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.12); transform: translateY(-2px); }
 
   .hero-scroll {
     position: absolute;
@@ -289,7 +294,7 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    opacity: 0.3;
+    opacity: 0.6;
     animation: bounce 2s infinite;
   }
 
@@ -297,13 +302,13 @@
     font-size: 0.65rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--text-dark);
+    color: #fff;
   }
 
   .scroll-line {
     width: 1px;
     height: 40px;
-    background: linear-gradient(to bottom, var(--text-dark), transparent);
+    background: linear-gradient(to bottom, #fff, transparent);
   }
 
   @keyframes bounce {
@@ -462,6 +467,19 @@
     background: rgba(0,0,0,0.08);
     border: 1.5px solid rgba(0,0,0,0.08);
     margin-bottom: 1.5px;
+  }
+
+  /* Modifier: 2-column layout for shorter sections (stacks to 1 column on mobile) */
+  .menu-grid--two-col {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* Modifier: 1-column centered layout for single-item sections */
+  .menu-grid--single {
+    grid-template-columns: minmax(300px, 1fr);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .menu-item {
@@ -1052,6 +1070,25 @@
     .find-us-inner { grid-template-columns: 1fr; gap: 3rem; }
     .hero-title { font-size: clamp(3rem, 14vw, 5rem); }
     .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Menu category header: stack title above tagline, hide divider line */
+    .menu-category-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+    .menu-category-title { white-space: normal; }
+    .menu-category-line { display: none; }
+    .menu-category-count { white-space: normal; }
+
+    /* Addon bars: stack label above content so long labels don't overflow */
+    .menu-addon-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 1rem 1.2rem;
+    }
+    .menu-addon-label { white-space: normal; }
   }
 </style>
 </head>
@@ -1061,28 +1098,9 @@
 <nav>
   <a href="index.html" style="text-decoration: none;">
     <div class="nav-logo">
-      <svg class="nav-logo-icon" viewBox="0 0 88 76" xmlns="http://www.w3.org/2000/svg">
-        <!-- Trailer body -->
-        <rect x="2" y="20" width="78" height="36" rx="2" fill="#C8102E" stroke="#1A1A1A" stroke-width="2"/>
-        <!-- Roof darker band -->
-        <rect x="2" y="20" width="78" height="6" fill="#9B0B22" stroke="#1A1A1A" stroke-width="2"/>
-        <!-- Awning extending out -->
-        <path d="M 16 26 L 64 26 L 68 16 L 12 16 Z" fill="#1A1A1A"/>
-        <path d="M 16 26 L 64 26 L 66 19 L 14 19 Z" fill="#E8294A"/>
-        <!-- Awning support poles -->
-        <line x1="14" y1="19" x2="14" y2="30" stroke="#1A1A1A" stroke-width="1.5"/>
-        <line x1="66" y1="19" x2="66" y2="30" stroke="#1A1A1A" stroke-width="1.5"/>
-        <!-- Service window opening -->
-        <rect x="16" y="30" width="48" height="16" fill="#1A1A1A"/>
-        <rect x="18" y="32" width="44" height="12" fill="#FAFAF8"/>
-        <!-- Counter -->
-        <rect x="14" y="44" width="52" height="2" fill="#1A1A1A"/>
-        <!-- Wheels -->
-        <circle cx="18" cy="60" r="8" fill="#1A1A1A"/>
-        <circle cx="18" cy="60" r="3" fill="#FAFAF8"/>
-        <circle cx="64" cy="60" r="8" fill="#1A1A1A"/>
-        <circle cx="64" cy="60" r="3" fill="#FAFAF8"/>
-      </svg>
+      <div class="nav-logo-badge">
+        <img src="images/logo.png" alt="For the Love of Food logo">
+      </div>
       <div class="nav-logo-text">
         <div class="nav-logo-main">The Big <span>Red Trailer</span></div>
         <div class="nav-logo-sub">For the Love of Food</div>
@@ -1104,7 +1122,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow">Seeley Lake, Montana · Est. 2016</div>
     <h1 class="hero-title">
-      <span class="hero-trailer">The Big<br><span style="color:var(--red);">Red Trailer.</span></span>
+      <span class="hero-trailer">The Big<br><span style="color:#ff3b56;">Red Trailer.</span></span>
     </h1>
     <div class="hero-business-name">For the Love of Food</div>
     <div class="hero-divider"></div>
@@ -1151,7 +1169,17 @@
       <div class="menu-category-header">
         <div class="menu-category-title">Burgers</div>
         <div class="menu-category-line"></div>
-        <div class="menu-category-count">¼ lb smash · hand-pressed · made to order</div>
+        <div class="menu-category-count">Hand-pressed smash burgers · cooked to order</div>
+      </div>
+
+      <!-- Info bars at top: free add-ons + salad option -->
+      <div class="menu-addon-bar">
+        <div class="menu-addon-label">Free add-ons on any specialty burger</div>
+        <div class="menu-addon-item">Lettuce · Tomato · Onion · Sweet Heat Pickles</div>
+      </div>
+      <div class="menu-addon-bar">
+        <div class="menu-addon-label">Make any burger a salad</div>
+        <div class="menu-addon-item">Ranch · Blue Cheese · Huckleberry Vinaigrette</div>
       </div>
 
       <div class="menu-grid">
@@ -1161,23 +1189,23 @@
           <div class="menu-item-tag">Montana Signature</div>
           <div class="menu-item-price">$16</div>
           <div class="menu-item-name">The Grizzly 406</div>
-          <div class="menu-item-desc">¼ lb smash burger with pepper jack cheese, jalapeños, huckleberry BBQ sauce, bacon bits, and house bleu cheese dressing.</div>
-          <div class="menu-item-toppings">
-            <strong>Optional Add-ons</strong>
-            Lettuce · Onion · Tomato
-          </div>
+          <div class="menu-item-desc">¼ lb smash burger with pepper jack, jalapeños, huckleberry BBQ sauce, bacon bits, and housemade blue cheese dressing. Heat, smoke, and a little wild.</div>
         </div>
 
         <!-- BURGER: All American -->
         <div class="menu-item">
           <div class="menu-item-tag">Classic</div>
           <div class="menu-item-price">$16</div>
-          <div class="menu-item-name">The All American</div>
-          <div class="menu-item-desc">¼ lb smash burger with house mac sauce and American cheese. The one that needs no introduction.</div>
-          <div class="menu-item-toppings">
-            <strong>Optional Add-ons</strong>
-            Lettuce · Tomato · Onion
-          </div>
+          <div class="menu-item-name">The All-American</div>
+          <div class="menu-item-desc">¼ lb smash burger with American cheese, house mac sauce, crispy onion crisps, and sweet heat pickles. The one that needs no introduction.</div>
+        </div>
+
+        <!-- BURGER: Seeley Lake -->
+        <div class="menu-item">
+          <div class="menu-item-tag">Hometown</div>
+          <div class="menu-item-price">$16</div>
+          <div class="menu-item-name">The Seeley Lake</div>
+          <div class="menu-item-desc">¼ lb smash burger with pepper jack, housemade chipotle aioli, lettuce, tomato, and sweet heat pickles. Named after the lake that named the town.</div>
         </div>
 
         <!-- BURGER: Bigfoot -->
@@ -1185,23 +1213,15 @@
           <div class="menu-item-tag">Fan Favorite</div>
           <div class="menu-item-price">$16</div>
           <div class="menu-item-name">The Bigfoot</div>
-          <div class="menu-item-desc">¼ lb smash burger with candied onion, pepper jack cheese, and mayo. Surprisingly elusive. Worth finding.</div>
-          <div class="menu-item-toppings">
-            <strong>Optional Add-ons</strong>
-            Lettuce · Onion · Tomato
-          </div>
+          <div class="menu-item-desc">¼ lb smash burger with pepper jack, candied onions, mayo, and lettuce. Surprisingly elusive. Worth finding.</div>
         </div>
 
-        <!-- BURGER: Lumberjack — price TBD, update before launch -->
+        <!-- BURGER: Lumberjack -->
         <div class="menu-item">
           <div class="menu-item-tag">Half Pounder</div>
           <div class="menu-item-price">$19</div>
           <div class="menu-item-name">The Lumberjack</div>
-          <div class="menu-item-desc">½ lb smash burger with American cheese, candied onion, and pepper jelly. Built for people who don't mess around.</div>
-          <div class="menu-item-toppings">
-            <strong>Optional Add-ons</strong>
-            Lettuce · Onion · Tomato
-          </div>
+          <div class="menu-item-desc">½ lb smash burger with American cheese, candied onions, mayo, and pepper jelly. Built for people who don't mess around.</div>
         </div>
 
         <!-- BURGER: Littlefoot — kids menu -->
@@ -1209,22 +1229,82 @@
           <div class="menu-item-tag">For the Kids</div>
           <div class="menu-item-price">$10</div>
           <div class="menu-item-name">The Littlefoot</div>
-          <div class="menu-item-desc">A bun, a patty, and American cheese. Exactly what they asked for. Nothing they didn't.</div>
-          <div class="menu-item-toppings">
-            <strong>Extras</strong>
-            Anything else is an add-on — just ask
-          </div>
+          <div class="menu-item-desc">A toasted bun, a patty, and American cheese. Exactly what they asked for. Nothing they didn't.</div>
         </div>
 
       </div><!-- /menu-grid burgers -->
 
-      <!-- ADD-ON BAR: chips & drink upgrade -->
+      <!-- ADD-ON BAR: combo + extra patty pricing -->
       <div class="menu-addon-bar">
-        <div class="menu-addon-label">Add to any burger</div>
-        <div class="menu-addon-item">Chips &amp; a Drink <span>+$2</span></div>
+        <div class="menu-addon-label">Make it a combo</div>
+        <div class="menu-addon-item">Chips &amp; a Drink <span>+$3</span></div>
+      </div>
+      <div class="menu-addon-bar">
+        <div class="menu-addon-label">Extra patty</div>
+        <div class="menu-addon-item">Double <span>+$3</span> · Triple <span>+$6</span></div>
       </div>
 
     </div><!-- /menu-category burgers -->
+
+
+    <!-- ═══════════════════════════════════════════
+         TACOS & BREAKFAST
+    ════════════════════════════════════════════ -->
+    <div class="menu-category">
+      <div class="menu-category-header">
+        <div class="menu-category-title">Tacos &amp; Breakfast</div>
+        <div class="menu-category-line"></div>
+        <div class="menu-category-count">Slow-cooked pork and our breakfast croissant</div>
+      </div>
+
+      <div class="menu-grid menu-grid--two-col">
+
+        <!-- TACOS: Sweet Pork -->
+        <div class="menu-item">
+          <div class="menu-item-tag">Pulled Pork</div>
+          <div class="menu-item-price">$16</div>
+          <div class="menu-item-name">Big Red's Sweet Pork Tacos</div>
+          <div class="menu-item-desc">Slow-cooked pulled pork in our housemade chipotle marinade with chipotle aioli, lettuce, fresh pico de gallo, and a cilantro lime sauce. Not your average truck taco.</div>
+        </div>
+
+        <!-- BREAKFAST: Sunrise -->
+        <div class="menu-item">
+          <div class="menu-item-tag">Mornings Only</div>
+          <div class="menu-item-price">$12</div>
+          <div class="menu-item-name">Breakfast Sunrise</div>
+          <div class="menu-item-desc">Toasted croissant with a ¼ lb smashed pork sausage patty, American cheese, an egg omelette, and housemade breakfast aioli. The way to start a day at the trailer.</div>
+        </div>
+
+      </div><!-- /menu-grid tacos+breakfast -->
+    </div><!-- /menu-category tacos+breakfast -->
+
+
+    <!-- ═══════════════════════════════════════════
+         FRESH SQUEEZED LEMONADE
+    ════════════════════════════════════════════ -->
+    <div class="menu-category">
+      <div class="menu-category-header">
+        <div class="menu-category-title">Fresh Squeezed Lemonade</div>
+        <div class="menu-category-line"></div>
+        <div class="menu-category-count">Squeezed by hand · $10 per quart</div>
+      </div>
+
+      <div class="menu-grid menu-grid--single">
+
+        <!-- LEMONADE: single card with all flavors -->
+        <div class="menu-item">
+          <div class="menu-item-tag">By the Quart</div>
+          <div class="menu-item-price">$10</div>
+          <div class="menu-item-name">Fresh Squeezed Lemonade</div>
+          <div class="menu-item-desc">Squeezed to order from real lemons. Built strong, served cold, sweet enough to taste the summer.</div>
+          <div class="menu-item-toppings">
+            <strong>Flavors</strong>
+            Traditional · Huckleberry · Strawberry · Peach · Mango · Blue Raspberry · Arnold Palmer
+          </div>
+        </div>
+
+      </div><!-- /menu-grid lemonade -->
+    </div><!-- /menu-category lemonade -->
 
 
     <!-- ═══════════════════════════════════════════
@@ -1236,43 +1316,48 @@
       <div class="menu-category-header">
         <div class="menu-category-title">Drinks</div>
         <div class="menu-category-line"></div>
-        <div class="menu-category-count">included with burger combo · or add one à la carte</div>
+        <div class="menu-category-count">Pair with anything on the menu</div>
       </div>
 
       <div class="drinks-grid">
 
+        <!-- DRINK: Iced Tea -->
+        <div class="drink-item">
+          <div class="drink-price">$3</div>
+          <div class="drink-name">Unsweet Tea</div>
+          <div class="drink-note">Bright, clean, no frills.</div>
+        </div>
+
         <!-- DRINK: Sweet Tea -->
         <div class="drink-item">
-          <div class="drink-price">$2</div>
-          <div class="drink-name">Sweet Iced Tea</div>
+          <div class="drink-price">$3</div>
+          <div class="drink-name">Sweet Tea</div>
           <div class="drink-note">The way it's supposed to be made.</div>
         </div>
 
-        <!-- DRINK: Unsweet Tea -->
+        <!-- DRINK: Soda -->
         <div class="drink-item">
           <div class="drink-price">$2</div>
-          <div class="drink-name">Unsweet Iced Tea</div>
-          <div class="drink-note">For the people who like to live dangerously.</div>
+          <div class="drink-name">Soda</div>
+          <div class="drink-note">Whatever's in the cooler today.</div>
         </div>
 
-        <!-- DRINK: Huckleberry Lemonade -->
+        <!-- DRINK: Water -->
         <div class="drink-item">
-          <div class="drink-price">$5</div>
-          <div class="drink-name">Huckleberry Lemonade</div>
-          <div class="drink-note">Montana in a cup. Rose won't share the ratio. <strong style="color:var(--red); font-style:normal;">($4 with a burger)</strong></div>
+          <div class="drink-price">$2</div>
+          <div class="drink-name">Water</div>
+          <div class="drink-note">Cold, bottled, and we won't judge you.</div>
+        </div>
+
+        <!-- DRINK: Carbonated Water -->
+        <div class="drink-item">
+          <div class="drink-price">$2</div>
+          <div class="drink-name">Carbonated Water</div>
+          <div class="drink-note">Bubbles, no sugar, no apologies.</div>
         </div>
 
       </div><!-- /drinks-grid -->
     </div><!-- /menu-category drinks -->
-
-
-    <!-- ═══════════════════════════════════════════
-         MORE ITEMS COMING SOON
-         Remove this block once new menu items are added above.
-    ════════════════════════════════════════════ -->
-    <div class="menu-footer">
-      <span class="menu-note">New items dropping soon — follow us to be the first to know.</span>
-    </div>
 
   </div>
 </section>
@@ -1288,20 +1373,20 @@
       <div class="team-card">
         <div class="team-card-accent"></div>
         <div class="team-avatar">
-          <div class="avatar-placeholder" style="background: linear-gradient(135deg, #8B1A2A, #C8102E);">C</div>
-        </div>
-        <div class="team-name">Charity</div>
-        <div class="team-role">The Idea Lady · Co-Founder</div>
-        <div class="team-bio">"Constantly improving the recipes. Rarely remembers exactly how. Mama brain is real — but the food still somehow slaps."</div>
-      </div>
-      <div class="team-card">
-        <div class="team-card-accent"></div>
-        <div class="team-avatar">
           <div class="avatar-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #3a3a6e);">J</div>
         </div>
         <div class="team-name">Jacob</div>
         <div class="team-role">The Mastermind · Co-Founder</div>
         <div class="team-bio">"Will add 12 items to the menu overnight and feel no remorse. In the kitchen, he's genuinely terrifying in the best possible way."</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-accent"></div>
+        <div class="team-avatar">
+          <div class="avatar-placeholder" style="background: linear-gradient(135deg, #8B1A2A, #C8102E);">C</div>
+        </div>
+        <div class="team-name">Charity</div>
+        <div class="team-role">The Idea Lady · Co-Founder</div>
+        <div class="team-bio">"Constantly improving the recipes. Rarely remembers exactly how. Mama brain is real — but the food still somehow slaps."</div>
       </div>
       <div class="team-card">
         <div class="team-card-accent"></div>
