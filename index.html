@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Big Red Trailer · For the Love of Food</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C8102E;
+    --red-dark: #9B0B22;
+    --red-light: #E8294A;
+    --black: #0F0F0F;
+    --black-mid: #1C1C1C;
+    --black-soft: #2A2A2A;
+    --white: #FFFFFF;
+    --white-warm: #FAFAF8;
+    --cream: #E8E4DD;
+    --light-gray: #EFECE6;
+    --gray: #888;
+    --text-dark: #1A1A1A;
+    --text-mid: #444;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--text-dark);
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(200,16,46,0.15);
+    box-shadow: 0 1px 20px rgba(0,0,0,0.06);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .nav-logo-badge {
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    flex-shrink: 0;
+  }
+
+  .nav-logo-badge img {
+    height: 46px;
+    width: 46px;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo-main {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.1em;
+    color: var(--text-dark);
+    line-height: 1;
+  }
+
+  .nav-logo-main span { color: var(--red); }
+
+  .nav-logo-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.65rem;
+    color: var(--red);
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+    margin-top: 0.2rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--red); }
+
+  .nav-cta {
+    background: var(--red);
+    color: var(--white) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    opacity: 1 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red-dark) !important; }
+
+  /* HERO — photo background with gradient overlay (A2) */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('images/hero-trailer.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(15,15,15,0.32), rgba(15,15,15,0.72));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    animation: heroFadeUp 1.2s ease forwards;
+  }
+
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    animation: heroFadeUp 1.2s 0.2s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 900;
+    line-height: 0.92;
+    color: var(--text-dark);
+    margin-bottom: 0.3em;
+    animation: heroFadeUp 1.2s 0.3s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--red);
+    display: block;
+  }
+
+  .hero-title .small-of {
+    font-size: 0.45em;
+    font-style: normal;
+    opacity: 0.4;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    display: block;
+    margin: 0.3em 0 0.1em;
+    color: var(--text-dark);
+  }
+
+  .hero-trailer {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 11vw, 10rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+
+  .hero-business-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    font-weight: 700;
+    color: #fff;
+    opacity: 0.95;
+    letter-spacing: 0.04em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    animation: heroFadeUp 1.2s 0.45s ease both;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--red);
+    margin: 1.8rem auto;
+    animation: heroFadeUp 1.2s 0.5s ease both;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.92);
+    letter-spacing: 0.08em;
+    font-weight: 300;
+    margin-bottom: 2.8rem;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+    animation: heroFadeUp 1.2s 0.6s ease both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+    animation: heroFadeUp 1.2s 0.75s ease both;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: var(--white);
+    padding: 0.95rem 2.4rem;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: background 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.6);
+    color: #fff;
+    padding: 0.95rem 2.4rem;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: border-color 0.25s, color 0.25s, transform 0.2s, background 0.25s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.6;
+    animation: bounce 2s infinite;
+  }
+
+  .hero-scroll span {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, #fff, transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* HOOK — light gray/cream background, dark text */
+  .hook {
+    background: var(--cream);
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hook::before {
+    content: '"';
+    position: absolute;
+    top: -1rem;
+    left: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 18rem;
+    color: var(--red);
+    opacity: 0.05;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .hook-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 0 0 40px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  .hook h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.8rem;
+    color: var(--text-dark);
+  }
+
+  .hook h2 em { font-style: italic; color: var(--red); }
+
+  .hook p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 1.2rem;
+  }
+
+  .hook-link {
+    color: var(--red);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    transition: gap 0.2s;
+  }
+
+  .hook-link:hover { gap: 0.9rem; }
+
+  /* MENU PREVIEW — white bg */
+  .menu-preview {
+    background: var(--white);
+    padding: 8rem 2rem;
+    position: relative;
+  }
+
+  .menu-preview-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .menu-preview h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    color: var(--text-dark);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .menu-preview .sub-note {
+    font-size: 0.88rem;
+    color: var(--gray);
+    font-style: italic;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ── MENU CATEGORY HEADERS ── */
+  .menu-category {
+    margin-bottom: 3rem;
+  }
+
+  .menu-category-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .menu-category-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--text-dark);
+    white-space: nowrap;
+  }
+
+  .menu-category-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+  }
+
+  .menu-category-count {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gray);
+    white-space: nowrap;
+  }
+
+  /* ── MENU GRID ── */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5px;
+    background: rgba(0,0,0,0.08);
+    border: 1.5px solid rgba(0,0,0,0.08);
+    margin-bottom: 1.5px;
+  }
+
+  /* Modifier: 2-column layout for shorter sections (stacks to 1 column on mobile) */
+  .menu-grid--two-col {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* Modifier: 1-column centered layout for single-item sections */
+  .menu-grid--single {
+    grid-template-columns: minmax(300px, 1fr);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .menu-item {
+    background: var(--white-warm);
+    padding: 2rem 1.8rem 1.6rem;
+    position: relative;
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .menu-item:hover { background: var(--black); }
+  .menu-item:hover .menu-item-name { color: var(--white); }
+  .menu-item:hover .menu-item-desc { color: rgba(255,255,255,0.55); }
+  .menu-item:hover .menu-item-tag { background: var(--red); color: white; border-color: var(--red); }
+  .menu-item:hover .menu-item-price { color: var(--white); }
+  .menu-item:hover .menu-item-toppings { color: rgba(255,255,255,0.35); }
+  .menu-item:hover .menu-item-toppings strong { color: rgba(255,255,255,0.55); }
+
+  .menu-item-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red-dark);
+    border: 1px solid var(--red);
+    padding: 0.2rem 0.6rem;
+    border-radius: 1px;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .menu-item-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+    line-height: 1.2;
+    padding-right: 3.5rem;
+  }
+
+  .menu-item-desc {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+    font-weight: 300;
+    transition: color 0.2s;
+    margin-bottom: 0.8rem;
+  }
+
+  .menu-item-toppings {
+    font-size: 0.75rem;
+    color: rgba(26,26,26,0.35);
+    line-height: 1.5;
+    font-weight: 300;
+    font-style: italic;
+    transition: color 0.2s;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 0.7rem;
+    margin-top: 0.2rem;
+  }
+
+  .menu-item-toppings strong {
+    font-weight: 700;
+    font-style: normal;
+    color: rgba(26,26,26,0.5);
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    display: block;
+    margin-bottom: 0.2rem;
+    transition: color 0.2s;
+  }
+
+  .menu-item-price {
+    position: absolute;
+    top: 2rem;
+    right: 1.8rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--red);
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  /* ── ADDON BAR ── */
+  .menu-addon-bar {
+    background: var(--cream);
+    border: 1.5px solid rgba(0,0,0,0.08);
+    border-top: none;
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .menu-addon-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .menu-addon-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+  }
+
+  .menu-addon-item span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    color: var(--red);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── DRINKS GRID ── */
+  .drinks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5px;
+    background: rgba(0,0,0,0.08);
+    border: 1.5px solid rgba(0,0,0,0.08);
+  }
+
+  .drink-item {
+    background: var(--black);
+    padding: 1.5rem 1.8rem;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .drink-item:hover { background: var(--red-dark); }
+  .drink-item:hover .drink-name { color: var(--white); }
+  .drink-item:hover .drink-note { color: rgba(255,255,255,0.5); }
+
+  .drink-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+    transition: color 0.2s;
+  }
+
+  .drink-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    font-style: italic;
+    transition: color 0.2s;
+  }
+
+  .drink-price {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.8rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--red-light);
+    letter-spacing: 0.05em;
+  }
+
+  .menu-footer {
+    text-align: center;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .menu-note {
+    font-size: 0.8rem;
+    color: var(--gray);
+    font-style: italic;
+  }
+
+  .btn-primary-dark {
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 0.95rem 2.4rem;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: background 0.25s;
+    display: inline-block;
+  }
+
+  .btn-primary-dark:hover { background: var(--red-dark); }
+
+  /* TEAM — light gray background, dark text */
+  .team {
+    background: var(--light-gray);
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team::after {
+    content: 'FAMILY';
+    position: absolute;
+    bottom: -2rem;
+    right: -1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14rem;
+    color: rgba(200,16,46,0.05);
+    letter-spacing: 0.1em;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .team-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .team h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .team h2 em { color: var(--red); font-style: italic; }
+
+  .team-sub {
+    color: rgba(26,26,26,0.45);
+    font-size: 0.88rem;
+    margin-bottom: 4rem;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 2rem;
+  }
+
+  .team-card {
+    position: relative;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 2px;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+
+  .team-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+  }
+
+  .team-avatar {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    letter-spacing: 0.05em;
+    color: white;
+    position: relative;
+  }
+
+  .avatar-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4));
+  }
+
+  .team-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.2rem;
+  }
+
+  .team-role {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+  }
+
+  .team-bio {
+    font-size: 0.92rem;
+    color: rgba(26,26,26,0.75);
+    line-height: 1.6;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .team-card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--red);
+    transition: height 0.3s ease;
+    border-radius: 2px 0 0 2px;
+  }
+
+  .team-card:hover .team-card-accent { height: 100%; }
+
+  /* FIND US — keeps red (intentional accent section) */
+  .find-us {
+    background: var(--red);
+    padding: 7rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .find-us::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 30px,
+      rgba(0,0,0,0.04) 30px,
+      rgba(0,0,0,0.04) 31px
+    );
+  }
+
+  .find-us-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .find-us h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    color: var(--white);
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+  }
+
+  .find-us-sub {
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .btn-white {
+    background: var(--white);
+    color: var(--red-dark);
+    padding: 0.95rem 2.4rem;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: background 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+
+  .schedule-list { list-style: none; }
+
+  .schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .schedule-day {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    color: var(--white);
+  }
+
+  .schedule-info { text-align: right; }
+
+  .schedule-loc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 700;
+  }
+
+  .schedule-time {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  /* FOOTER — dark for contrast anchor at page bottom */
+  footer {
+    background: var(--text-dark);
+    padding: 4rem 2rem 2.5rem;
+    text-align: center;
+    border-top: 3px solid var(--red);
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-logo span { color: var(--red); }
+
+  .footer-tagline {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-social a {
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-social a:hover { color: var(--red); }
+
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.1em;
+  }
+
+  /* PAGE 2 DIVIDER */
+  .page-break {
+    background: var(--cream);
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: rgba(26,26,26,0.25);
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  /* STORY HERO — cream/warm white */
+  .story-hero {
+    background: var(--white-warm);
+    padding: 14rem 2rem 8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .story-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(200,16,46,0.06), transparent 60%);
+  }
+
+  .story-hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .story-hero-inner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+  }
+
+  .story-hero-inner h1 em { color: var(--red); font-style: italic; }
+
+  .story-lead {
+    font-size: 1.2rem;
+    color: rgba(26,26,26,0.6);
+    line-height: 1.9;
+    font-weight: 300;
+    max-width: 620px;
+  }
+
+  /* STORY BODY — white */
+  .story-body {
+    background: var(--white);
+    padding: 8rem 2rem;
+  }
+
+  .story-body-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .story-pull {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-style: italic;
+    color: var(--red-dark);
+    line-height: 1.4;
+    border-left: 4px solid var(--red);
+    padding-left: 1.8rem;
+    margin: 3.5rem 0;
+  }
+
+  .story-text {
+    font-size: 1rem;
+    line-height: 1.95;
+    color: var(--text-mid);
+    margin-bottom: 1.4rem;
+    font-weight: 400;
+  }
+
+  .story-chapter {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    color: var(--text-dark);
+    margin: 4rem 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .story-chapter::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+  }
+
+  .story-chapter span { color: var(--red); font-size: 0.9em; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .find-us-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-title { font-size: clamp(3rem, 14vw, 5rem); }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Menu category header: stack title above tagline, hide divider line */
+    .menu-category-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+    .menu-category-title { white-space: normal; }
+    .menu-category-line { display: none; }
+    .menu-category-count { white-space: normal; }
+
+    /* Addon bars: stack label above content so long labels don't overflow */
+    .menu-addon-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 1rem 1.2rem;
+    }
+    .menu-addon-label { white-space: normal; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" style="text-decoration: none;">
+    <div class="nav-logo">
+      <div class="nav-logo-badge">
+        <img src="images/logo.png" alt="For the Love of Food logo">
+      </div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-main">The Big <span>Red Trailer</span></div>
+        <div class="nav-logo-sub">For the Love of Food</div>
+      </div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#team">Our People</a></li>
+    <li><a href="#find-us">Find Us</a></li>
+    <li><a href="story.html">Our Story</a></li>
+    <li><a href="#order" class="nav-cta">Order Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Seeley Lake, Montana · Est. 2016</div>
+    <h1 class="hero-title">
+      <span class="hero-trailer">The Big<br><span style="color:#ff3b56;">Red Trailer.</span></span>
+    </h1>
+    <div class="hero-business-name">For the Love of Food</div>
+    <div class="hero-divider"></div>
+    <p class="hero-sub"><strong>Food worth texting your friends about.</strong></p>
+    <div class="hero-buttons">
+      <a href="#menu" class="btn-primary">See the Menu</a>
+      <a href="#order" class="btn-outline">Order Now</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- HOOK -->
+<section class="hook">
+  <div class="hook-inner">
+    <div class="section-label">The Short Version</div>
+    <h2><em>You'll know on the first bite.</em></h2>
+    <p>Every burger is hand-pressed. Every sauce is made from scratch. Every recipe is tested and re-tested until it's right — and then tweaked again next week, because there's always a better version.</p>
+    <p>Two siblings, one trailer, and a kitchen full of people who care.</p>
+    <p style="margin-top: 2.5rem; font-style: italic; color: var(--text-dark); opacity: 0.7;">Hungry? Keep scrolling.</p>
+    <div style="margin-top: 2.5rem;">
+      <a href="story.html" class="hook-link">Read the full story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MENU PREVIEW -->
+<section class="menu-preview" id="menu">
+  <div class="menu-preview-inner">
+    <div class="section-label">What We're Serving</div>
+    <h2>THE MENU</h2>
+    <p class="sub-note">*Subject to change — Jacob had an idea at 2am. You're welcome.</p>
+
+    <!-- ═══════════════════════════════════════════
+         BURGERS
+         To add a burger: duplicate a .menu-item block below.
+         To update a price: edit the .menu-item-price value.
+         To update toppings: edit inside .menu-item-toppings.
+    ════════════════════════════════════════════ -->
+    <div class="menu-category">
+      <div class="menu-category-header">
+        <div class="menu-category-title">Burgers</div>
+        <div class="menu-category-line"></div>
+        <div class="menu-category-count">Hand-pressed smash burgers · cooked to order</div>
+      </div>
+
+      <!-- Info bars at top: free add-ons + salad option -->
+      <div class="menu-addon-bar">
+        <div class="menu-addon-label">Free add-ons on any specialty burger</div>
+        <div class="menu-addon-item">Lettuce · Tomato · Onion</div>
+      </div>
+      <div class="menu-addon-bar">
+        <div class="menu-addon-label">Make any burger a salad</div>
+        <div class="menu-addon-item">Ranch · Blue Cheese · Huckleberry Vinaigrette</div>
+      </div>
+
+      <div class="menu-grid">
+
+        <!-- BURGER: Grizzly 406 -->
+        <div class="menu-item">
+          <div class="menu-item-tag">Montana Signature</div>
+          <div class="menu-item-price">$16</div>
+          <div class="menu-item-name">The Grizzly 406</div>
+          <div class="menu-item-desc">¼ lb smash burger with pepper jack, jalapeños, huckleberry BBQ sauce, bacon bits, and housemade blue cheese dressing. Heat, smoke, and a little wild.</div>
+        </div>
+
+        <!-- BURGER: All American -->
+        <div class="menu-item">
+          <div class="menu-item-tag">Classic</div>
+          <div class="menu-item-price">$16</div>
+          <div class="menu-item-name">The All-American</div>
+          <div class="menu-item-desc">¼ lb smash burger with American cheese, house mac sauce, crispy onion crisps, and sweet heat pickles. The one that needs no introduction.</div>
+        </div>
+
+        <!-- BURGER: Seeley Lake -->
+        <div class="menu-item">
+          <div class="menu-item-tag">Hometown</div>
+          <div class="menu-item-price">$16</div>
+          <div class="menu-item-name">The Seeley Lake</div>
+          <div class="menu-item-desc">¼ lb smash burger with pepper jack, housemade chipotle aioli, lettuce, tomato, and sweet heat pickles. Named after the lake that named the town.</div>
+        </div>
+
+        <!-- BURGER: Bigfoot -->
+        <div class="menu-item">
+          <div class="menu-item-tag">Fan Favorite</div>
+          <div class="menu-item-price">$16</div>
+          <div class="menu-item-name">The Bigfoot</div>
+          <div class="menu-item-desc">¼ lb smash burger with pepper jack, candied onions, mayo, and lettuce. Surprisingly elusive. Worth finding.</div>
+        </div>
+
+        <!-- BURGER: Lumberjack -->
+        <div class="menu-item">
+          <div class="menu-item-tag">Half Pounder</div>
+          <div class="menu-item-price">$19</div>
+          <div class="menu-item-name">The Lumberjack</div>
+          <div class="menu-item-desc">½ lb smash burger with American cheese, candied onions, jalapeños, mayo, and pepper jelly. Built for people who don't mess around.</div>
+        </div>
+
+        <!-- BURGER: Littlefoot — kids menu -->
+        <div class="menu-item">
+          <div class="menu-item-tag">For the Kids</div>
+          <div class="menu-item-price">$10</div>
+          <div class="menu-item-name">The Littlefoot</div>
+          <div class="menu-item-desc">A toasted bun, a patty, and American cheese. Exactly what they asked for. Nothing they didn't.</div>
+        </div>
+
+      </div><!-- /menu-grid burgers -->
+
+      <!-- ADD-ON BAR: combo + extra patty pricing -->
+      <div class="menu-addon-bar">
+        <div class="menu-addon-label">Make it a combo</div>
+        <div class="menu-addon-item">Chips &amp; a Drink <span>+$3</span></div>
+      </div>
+      <div class="menu-addon-bar">
+        <div class="menu-addon-label">Extra patty</div>
+        <div class="menu-addon-item">Double <span>+$3</span> · Triple <span>+$6</span></div>
+      </div>
+
+    </div><!-- /menu-category burgers -->
+
+
+    <!-- ═══════════════════════════════════════════
+         TACOS & BREAKFAST
+    ════════════════════════════════════════════ -->
+    <div class="menu-category">
+      <div class="menu-category-header">
+        <div class="menu-category-title">Tacos &amp; Breakfast</div>
+        <div class="menu-category-line"></div>
+        <div class="menu-category-count">Slow-cooked pork and our breakfast croissant</div>
+      </div>
+
+      <div class="menu-grid menu-grid--two-col">
+
+        <!-- TACOS: Sweet Pork -->
+        <div class="menu-item">
+          <div class="menu-item-tag">Pulled Pork</div>
+          <div class="menu-item-price">$16</div>
+          <div class="menu-item-name">Big Red's Sweet Pork Tacos</div>
+          <div class="menu-item-desc">Slow-cooked pulled pork in our housemade chipotle marinade with chipotle aioli, lettuce, fresh pico de gallo, and a cilantro lime sauce. Not your average truck taco.</div>
+        </div>
+
+        <!-- BREAKFAST: Sunrise -->
+        <div class="menu-item">
+          <div class="menu-item-tag">Mornings Only</div>
+          <div class="menu-item-price">$12</div>
+          <div class="menu-item-name">Breakfast Sunrise</div>
+          <div class="menu-item-desc">Toasted croissant with a ¼ lb smashed pork sausage patty, American cheese, an egg omelette, and housemade breakfast aioli. The way to start a day at the trailer.</div>
+        </div>
+
+      </div><!-- /menu-grid tacos+breakfast -->
+    </div><!-- /menu-category tacos+breakfast -->
+
+
+    <!-- ═══════════════════════════════════════════
+         FRESH SQUEEZED LEMONADE
+    ════════════════════════════════════════════ -->
+    <div class="menu-category">
+      <div class="menu-category-header">
+        <div class="menu-category-title">Fresh Squeezed Lemonade</div>
+        <div class="menu-category-line"></div>
+        <div class="menu-category-count">Squeezed by hand · $10 per quart</div>
+      </div>
+
+      <div class="menu-grid menu-grid--single">
+
+        <!-- LEMONADE: single card with all flavors -->
+        <div class="menu-item">
+          <div class="menu-item-tag">By the Quart</div>
+          <div class="menu-item-price">$10</div>
+          <div class="menu-item-name">Fresh Squeezed Lemonade</div>
+          <div class="menu-item-desc">Squeezed to order from real lemons. Built strong, served cold, sweet enough to taste the summer.</div>
+          <div class="menu-item-toppings">
+            <strong>Flavors</strong>
+            Traditional · Huckleberry · Strawberry · Peach · Mango · Blue Raspberry · Arnold Palmer
+          </div>
+        </div>
+
+      </div><!-- /menu-grid lemonade -->
+    </div><!-- /menu-category lemonade -->
+
+
+    <!-- ═══════════════════════════════════════════
+         DRINKS
+         To add a drink: duplicate a .drink-item block below.
+         To update price: edit the .drink-price value.
+    ════════════════════════════════════════════ -->
+    <div class="menu-category">
+      <div class="menu-category-header">
+        <div class="menu-category-title">Drinks</div>
+        <div class="menu-category-line"></div>
+        <div class="menu-category-count">Pair with anything on the menu</div>
+      </div>
+
+      <div class="drinks-grid">
+
+        <!-- DRINK: Iced Tea -->
+        <div class="drink-item">
+          <div class="drink-price">$2</div>
+          <div class="drink-name">Unsweet Tea</div>
+          <div class="drink-note">Bright, clean, no frills.</div>
+        </div>
+
+        <!-- DRINK: Sweet Tea -->
+        <div class="drink-item">
+          <div class="drink-price">$2</div>
+          <div class="drink-name">Sweet Tea</div>
+          <div class="drink-note">The way it's supposed to be made.</div>
+        </div>
+
+        <!-- DRINK: Flavored Iced Tea (multiple flavors) -->
+        <div class="drink-item">
+          <div class="drink-price">$2</div>
+          <div class="drink-name">Flavored Iced Tea</div>
+          <div class="drink-note">Peach · Mango · Huckleberry</div>
+        </div>
+
+        <!-- DRINK: Soda -->
+        <div class="drink-item">
+          <div class="drink-price">$2</div>
+          <div class="drink-name">Soda</div>
+          <div class="drink-note">Whatever's in the cooler today.</div>
+        </div>
+
+        <!-- DRINK: Water -->
+        <div class="drink-item">
+          <div class="drink-price">$2</div>
+          <div class="drink-name">Water</div>
+          <div class="drink-note">Cold, bottled, and we won't judge you.</div>
+        </div>
+
+        <!-- DRINK: Carbonated Water -->
+        <div class="drink-item">
+          <div class="drink-price">$2</div>
+          <div class="drink-name">Carbonated Water</div>
+          <div class="drink-note">Bubbles, no sugar, no apologies.</div>
+        </div>
+
+      </div><!-- /drinks-grid -->
+    </div><!-- /menu-category drinks -->
+
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="team-inner">
+    <div class="section-label">The People Behind It</div>
+    <h2>This food is made by <em>real people.</em></h2>
+    <p class="team-sub">Stubborn, passionate, occasionally chaotic, always family.</p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-accent"></div>
+        <div class="team-avatar">
+          <div class="avatar-placeholder" style="background: linear-gradient(135deg, #1a1a2e, #3a3a6e);">J</div>
+        </div>
+        <div class="team-name">Jacob</div>
+        <div class="team-role">The Mastermind · Co-Founder</div>
+        <div class="team-bio">"Will add 12 items to the menu overnight and feel no remorse. In the kitchen, he's genuinely terrifying in the best possible way."</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-accent"></div>
+        <div class="team-avatar">
+          <div class="avatar-placeholder" style="background: linear-gradient(135deg, #8B1A2A, #C8102E);">C</div>
+        </div>
+        <div class="team-name">Charity</div>
+        <div class="team-role">The Idea Lady · Co-Founder</div>
+        <div class="team-bio">"Constantly improving the recipes. Rarely remembers exactly how. Mama brain is real — but the food still somehow slaps."</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-accent"></div>
+        <div class="team-avatar">
+          <div class="avatar-placeholder" style="background: linear-gradient(135deg, #2a1a0a, #6e3a1a);">R</div>
+        </div>
+        <div class="team-name">Rose</div>
+        <div class="team-role">The Steady · Operations</div>
+        <div class="team-bio">"The planner. Shows up every day and makes it happen. Quiet — but absolutely not mild. The reason any of this actually runs."</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-accent"></div>
+        <div class="team-avatar">
+          <div class="avatar-placeholder" style="background: linear-gradient(135deg, #0a2a1a, #1a6e3a);">M</div>
+        </div>
+        <div class="team-name">Mario</div>
+        <div class="team-role">The Rock · Logistics</div>
+        <div class="team-bio">"Makes the grocery runs for Jacob's 2am additions. Brings the team back down from cloud nine. The northerner steady we didn't know we needed."</div>
+      </div>
+      <div class="team-card">
+        <div class="team-card-accent"></div>
+        <div class="team-avatar">
+          <div class="avatar-placeholder" style="background: linear-gradient(135deg, #1a0a2a, #4a1a6e);">H</div>
+        </div>
+        <div class="team-name">Hannah</div>
+        <div class="team-role">The Connector · Marketing & Window</div>
+        <div class="team-bio">"Studies marketing for fun. Can't stop writing. You'll find her at the window, genuinely wanting to hear your story. Also: champion veggie chopper."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIND US -->
+<section class="find-us" id="find-us">
+  <div class="find-us-inner">
+    <div>
+      <h2>COME FIND US.</h2>
+      <p class="find-us-sub">We show up at markets, events, and wherever the community calls us. Check the schedule or place an order ahead — we love knowing you're coming.</p>
+      <a href="#order" class="btn-white">Place an Order</a>
+    </div>
+    <div>
+      <ul class="schedule-list">
+        <li class="schedule-item">
+          <span class="schedule-day">Saturdays</span>
+          <div class="schedule-info">
+            <div class="schedule-loc">Seeley Lake Farmers Market</div>
+            <div class="schedule-time">9am – 2pm · June through September</div>
+          </div>
+        </li>
+        <li class="schedule-item">
+          <span class="schedule-day">Events</span>
+          <div class="schedule-info">
+            <div class="schedule-loc">Around the State</div>
+            <div class="schedule-time">Follow us for updates</div>
+          </div>
+        </li>
+        <li class="schedule-item">
+          <span class="schedule-day">Private</span>
+          <div class="schedule-info">
+            <div class="schedule-loc">Catering & Special Events</div>
+            <div class="schedule-time">Inquire to book</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>The Big Red Trailer</span></div>
+  <div class="footer-tagline">For the Love of Food · Seeley Lake, Montana · Made with intention</div>
+  <div class="footer-social">
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+    <a href="#">Order Online</a>
+  </div>
+  <div class="footer-copy">© 2026 The Big Red Trailer · For the Love of Food · Great Falls born, Seeley made.</div>
+</footer>
+
+
+</body>
+</html>
